@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        onload = () => {
+            let button = document.getElementById("bt");
+            button.innerHTML = "<strong>Olá mundo!</strong>";
+            button.style.fontSize = "20px";
+            button.style.backgroundColor = "yellow";
+            button.onclick = () => {
+                alert("Olá, Mundo novo - document.getElementById!")
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <p><button id="bt">Olá</button></p>
+</body>
+
+</html>

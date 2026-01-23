@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ola() {
+            alert("Olá, Mundo!");
+        }
+        function entrou() {
+            alert("Entrou com o mouse!");
+        }
+        function saiu() {
+            alert("Saiu com o mouse!");
+        }
+        // window.onload = () => {
+        //     bt.onclick = () => {
+        //         alert("Olá, Mundo novo - onclick!");
+        //     };
+        // };
+        window.onload = () => {
+            bt.addEventListener("click", () =>
+                alert("Olá, Mundo novo - addEventListener!")
+            );
+        };
+    </script>
+</head>
+
+<body>
+    <p><button onclick="ola()">Clique aqui</button></p>
+    <!-- <p onmouseover="entrou()" onmouseout="saiu()">Ola mundo</p> -->
+    <p><button id="bt">Olá</button></p>
+
+</body>
+
+</html>

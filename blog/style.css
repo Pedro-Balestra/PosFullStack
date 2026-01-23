@@ -1,0 +1,125 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-image: url(./assets/image.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.menu-principal {
+    background-color: #f4f4f4;
+    padding: 20px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 20px 0px 20px;
+    display: flex;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+
+        li {
+            a {
+                text-decoration: none;
+                color: #333;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+
+    }
+}
+
+.container-posts {
+    display: flex;
+    padding: 50px;
+    gap: 20px;
+}
+
+main {
+    width: 100%;
+}
+
+
+.caixa-post {
+    display: flex;
+    padding: 10px;
+    border: 0.5px solid #ccc;
+    margin-bottom: 20px;
+    gap: 15px;
+    border-radius: 5px;
+    background-color: #f4f4f4f8;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+
+    img.thumbnail {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .conteudo-post {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .titulo {
+        margin: 0;
+        font-size: 1.2em;
+        font-weight: semi-bold;
+    }
+
+    .subtitulo {
+        font-size: 0.9em;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 10px;
+    }
+
+    .texto {
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+aside {
+    width: 20%;
+    height: fit-content;
+    /*       top right bottom left */
+    padding: 0px 20px 10px 20px;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f4f4f8;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        margin-top: 20px;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    ul {
+        li {
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+                text-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+            }
+
+        }
+    }
+}

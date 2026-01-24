@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <script>
+        function ajax() {
+            try {
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            let usuario = JSON.parse(this.responseText);
+                            nome.innerText = usuario.nome;
+                            idade.innerText = usuario.idade;
+                            filhos.innerText = usuario.filhos
+                                .map(filho => filho.nome + " (" + filho.idade + " anos)")
+                                .join(", ");
+                        } else {
+                            alert("Erro: " + this.status);
+                        }
+                    }
+                };
+                xhttp.open("GET", "dados.json", true);
+                xhttp.send();
+            } catch (error) {
+                alert("Seu navegador não suporta Ajax");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Ajax</h1>
+    <button onclick="ajax()">Carrega Usuário</button>
+    <dl>
+        <dt>Nome:</dt>
+        <dd id="nome"></dd>
+        <dt>Idade:</dt>
+        <dd id="idade"></dd>
+        <dt>Filhos:</dt>
+        <dd id="filhos"></dd>
+    </dl>
+</body>
+
+</html>

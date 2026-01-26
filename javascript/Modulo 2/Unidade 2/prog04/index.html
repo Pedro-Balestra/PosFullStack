@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocalização</title>
+    <script>
+        onload = () => {
+            let geo = navigator.geolocation;
+            const geoCoords = function (p) {
+                output.innerHTML = `Latitude: ${p.coords.latitude}
+                <br> Longitude: ${p.coords.longitude}`;
+
+            };
+            const geoError = function (e) {
+                switch(e.code) {
+                    case e.PERMISSION_DENIED:
+                        output.innerHTML = "Usuário negou a solicitação de Geolocalização.";
+                        break;
+                    case e.POSITION_UNAVAILABLE:
+                        output.innerHTML = "Informações de localização indisponíveis.";
+                        break;
+                    case e.TIMEOUT:
+                        output.innerHTML = "A solicitação expirou.";
+                        break;
+                    case e.UNKNOWN_ERROR:
+                        output.innerHTML = "Um erro desconhecido ocorreu.";
+                        break;
+                }
+            };
+            let options = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            };
+            let watchId = geo.watchPosition(geoCoords, geoError, options);
+            stopWatch.onclick = () => {
+                geo.clearWatch(watchId);
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Geolocalização</h1>
+    <p id="output"></p>
+    <p><button id="stopWatch">Parar Monitoramento</button></p>
+</body>
+
+</html>

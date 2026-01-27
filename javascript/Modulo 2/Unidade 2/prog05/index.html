@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB</title>
+    <script>
+        let livros = [
+            { id: 1, titulo: "JavaScript Básico", autor: "João da Silva" },
+            { id: 2, titulo: "JavaScript Avançado", autor: "Maria Souza" }
+        ]
+        let db;
+        let reqdb = indexedDB.open("MinhaBaseDeDados", 1);
+        reqdb.onsuccess = () => {
+            db = reqdb.result;
+            console.log("Banco de dados aberto com sucesso.");
+        }
+        reqdb.onerror = (e) => {
+            console.log(reqdb.error);
+            console.log("Erro ao abrir o banco de dados: " + e.target.errorCode);
+        }
+        reqdb.onupgradeneeded = (e) => {
+            db = reqdb.result;
+            if (!db.objectStoreNames.contains("Livros")) {
+                let objStore = db.createObjectStore("Livros", { keyPath: "id"});
+                objStore.createIndex("nome", "nome", { unique: false });
+                objStore.createIndex("email", "email", { unique: true });
+                console.log("Object store 'Livros' criada com sucesso.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>IndexedDB</h1>
+</body>
+
+</html>

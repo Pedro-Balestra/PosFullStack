@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop</title>
+    <style>
+        .caixa {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #000;
+            background-color: #f0f0f0;
+        }
+
+        .zone {
+            float: left;
+            margin-right: 1em;
+            width: 100px;
+            height: 100px;
+            border: thick dashed;
+        }
+
+        .red {
+            border-color: #f33;
+        }
+
+        .blue {
+            border-color: #33f;
+        }
+
+        .black {
+            background-color: #000;
+        }
+
+        .zone-over {
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+        onload = () => {
+            caixa.ondragstart = (e) => {
+                e.dataTransfer.setData("text/plain", caixa.id);
+                caixa.classList.add("black");
+            }
+            caixa.ondragend = (e) => {
+                caixa.classList.remove("black");
+            }
+            for (const z of document.querySelectorAll('.zone')) {
+                z.ondragover = (e) => {
+                    e.preventDefault();
+                    z.classList.add('zone-over');
+                }
+                z.ondragleave = (e) => {
+                    z.classList.remove('zone-over');
+                }
+                // z.ondrop = (e) => {
+                //     e.preventDefault();
+                //     const id = e.dataTransfer.getData("text/plain");
+                //     const elemento = document.getElementById(id);
+                //     z.appendChild(elemento);
+                //     z.classList.remove('zone-over');
+                // }
+                z.ondrop = (e) => {
+                    e.preventDefault();
+                    const arqs = e.dataTransfer.files;
+                    console.log(Array.from(arqs)
+                        .map((f) => f.name)
+                        .join('\n'));
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Drag & Drop</h1>
+    <div id="zona1" class="zone red">
+        <div id="caixa" class="caixa" draggable="true"></div>
+    </div>
+    <div id="zona2" class="zone blue"></div>
+</body>
+
+</html>

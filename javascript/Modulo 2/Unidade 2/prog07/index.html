@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File</title>
+    <script>
+        onload = () => {
+            arquivos.onchange = () => {
+
+                let fr = new FileReader();
+                // fr.readAsText(arquivos.files[0], 'UTF-8')
+                // fr.onload = (e) => {
+                //     arqs.innerHTML = e.target.result;
+                // }
+                fr.readAsDataURL(arquivos.files[0])
+                fr.onload = (e) => {
+                    arqs.innerHTML = `<img src="${e.target.result}" alt="Imagem carregada" style="max-width: 300px;">`;
+                }
+
+                // arqs.innerHTML = Array.from(arquivos.files)
+                //     .map((f) => f.name)
+                //     .join('<br/>');
+
+                // for (let i = 0; i < arquivos.files.length; i++) {
+                //     arqs.innerHTML += `<strong>Arquivo ${i + 1}: ${arquivos.files[i].name}</strong><br>`;
+                //     console.log(`Nome do arquivo: ${arquivos.files[i].name}`);
+                //     console.log(`Tamanho do arquivo: ${arquivos.files[i].size} bytes`);
+                //     console.log(`Tipo do arquivo: ${arquivos.files[i].type}`);
+                //     console.log(`Última modificação: ${arquivos.files[i].lastModifiedDate}`);
+                // }
+            }
+            btnArquivos.onclick = () => {
+                arquivos.click();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>File</h1>
+    <p>
+        <input type="file" id="arquivos" multiple style="display: none" accept="image/*">
+        <button id="btnArquivos">Escolher Arquivos</button>
+    </p>
+    <p id="arqs"></p>
+</body>
+
+</html>

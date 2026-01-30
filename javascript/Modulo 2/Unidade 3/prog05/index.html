@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtros</title>
+    <style>
+        .red {
+            color: #fff;
+            background-color: #f00;
+        }
+
+        .blue {
+            color: #fff;
+            background-color: #00f;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // $("div p").filter(":even").addClass("red");
+            // $("div p").filter(":odd").addClass("blue");
+            // $("div p").filter("div+p").addClass("blue");
+            // $("div p").eq("2").addClass("blue");
+            // $("div p").has("strong").addClass("blue");
+            // $("div p").add("h1").addClass("blue");
+            // let listaIds = $("div p").map(function () {
+            //     return $(this).attr("id")
+            // }).get();
+            // console.log(listaIds.join(", "));
+            let listaP = $("div p").get();
+            console.log(listaP);
+        })
+    </script>
+</head>
+
+<body>
+    <h1>Filtros</h1>
+    <div>
+        <p id="p1"><strong>Primeiro Paragrafo</strong></p>
+        <p id="p2">Segundo Paragrafo</p>
+        <div></div>
+        <p id="p3">Terceiro Paragrafo</p>
+        <p id="p4">Quarto Paragrafo</p>
+        <p id="p5">Quinto Paragrafo</p>
+    </div>
+</body>
+</body>
+
+</html>

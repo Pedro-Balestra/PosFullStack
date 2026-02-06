@@ -1,0 +1,14 @@
+#grafico {
+    width: 600px;
+    height: 400px;
+    border: thin solid #000;
+}
+
+.barras {
+    fill: lightblue;
+    stroke: #000;
+}
+
+.rotulo {
+    text-anchor: middle;
+}

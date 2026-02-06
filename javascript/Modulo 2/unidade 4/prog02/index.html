@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3Js - Grafico de Barras</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        #grafico {
+            width: 600px;
+            height: 400px;
+            border: thin solid #000;
+        }
+
+        .barras {
+            fill: lightblue;
+            stroke: #000;
+        }
+
+        .rotulo {
+            text-anchor: end;
+        }
+    </style>
+    <script>
+        onload = () => {
+            let dados = [156, 273, 120, 115, 44, 250, 113];
+            let svg = d3.select("#grafico");
+            let largura = parseInt(svg.style("width"));
+            let altura = parseInt(svg.style("height"));
+            let fnX = d3.scaleLinear()
+                .domain([0, d3.max(dados)])
+                .range([0, largura]);
+            let fnY = d3.scaleLinear()
+                .domain([0, dados.length])
+                .range([0, altura]);
+
+            svg.selectAll(".barras")
+                .data(dados)
+                .enter()
+                .append("rect")
+                .classed("barras", true)
+                .attr("x", 0)
+                .attr("y", (d, i) => fnY(i))
+                .attr("width", d => fnX(d))
+                .attr("height", fnY(1) - 5);
+
+            svg.selectAll(".rotulo")
+                .data(dados)
+                .enter()
+                .append("text")
+                .classed("rotulo", true)
+                .text(d => d)
+                .attr("x", d => fnX(d))
+                .attr("dx", -10)
+                .attr("y", (d, i) => fnY(i))
+                .attr("dy", d => fnY(1) * 0.9 * 2 / 3);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>D3Js - Grafico de Barras</h1>
+    <svg id="grafico"></svg>
+</body>
+
+</html>

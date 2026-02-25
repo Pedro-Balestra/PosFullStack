@@ -1,0 +1,40 @@
+#grafico {
+    shape-rendering: crispEdges;
+}
+
+.barras {
+    stroke: #000;
+}
+
+.rotulo {
+    text-anchor: middle;
+}
+
+#eixoX text {
+    font-size: 120%;
+    text-anchor: end;
+    transform: translate(-8px, 2px) rotate(-45deg);
+}
+
+#eixoY text {
+    font-size: 120%;
+}
+
+#grade path {
+    display: none;
+}
+
+#grade line {
+    stroke: #aaa;
+    stroke-dasharray: 2px 2px;
+}
+
+figure {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+figcaption {
+    font-size: xx-large;
+    font-weight: bold;
+}

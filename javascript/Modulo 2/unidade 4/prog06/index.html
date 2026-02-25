@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3Js - Grafico de Colunas</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="grafico.js"></script>
+    <link rel="stylesheet" href="grafico.css">
+    <script>
+        const clicado = (d) => {
+            alert("Clicou na barra " + d.chave + " com valor " + d.valor);
+        }
+        onload = () => {
+            let dados = [
+                { chave: "Frango", valor: 56 },
+                { chave: "Carne", valor: 73 },
+                { chave: "Vegetariano", valor: 20 },
+                { chave: "Queijo", valor: 115 },
+                { chave: "Goiabada", valor: 44 },
+                { chave: "Banana", valor: 60 },
+                { chave: "Calabresa", valor: 33 },
+            ];
+            let graf = new Grafico({
+                seletor: "#grafico",
+                dados: dados,
+                largura: 600,
+                altura: 400,
+                tituloX: "Tipo de Recheio",
+                tituloY: "Quantidade de Pedidos",
+                callback: clicado,
+            });
+            crescente.onclick = () => {
+                dados.sort((a, b) => a.valor - b.valor);
+                graf.atualizar(dados);
+            }
+            decrescente.onclick = () => {
+                dados.sort((a, b) => b.valor - a.valor);
+                graf.atualizar(dados);
+            }
+            alfabetica.onclick = () => {
+                dados.sort((a, b) => a.chave.localeCompare(b.chave));
+                graf.atualizar(dados);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <figure>
+        <figcaption>D3Js - Grafico de Colunas</figcaption>
+        <svg id="grafico"></svg>
+        <p>
+            <button id="crescente">Ordem Crescente</button>
+            <button id="decrescente">Ordem Decrescente</button>
+            <button id="alfabetica">Ordem Alfabetica</button>
+        </p>
+    </figure>
+</body>
+
+</html>

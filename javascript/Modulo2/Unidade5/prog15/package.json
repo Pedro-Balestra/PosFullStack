@@ -1,0 +1,20 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "Aplicação de teste NPM",
+  "license": "ISC",
+  "author": "Pedro Balestra",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "translate": "^3.0.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}

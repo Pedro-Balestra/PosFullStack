@@ -1,0 +1,23 @@
+{
+  "name": "projeto1",
+  "version": "1.0.0",
+  "description": "Primeiro projeto em Node.js",
+  "keywords": [
+    "npm",
+    "projeto-node",
+    "javascript"
+  ],
+  "license": "ISC",
+  "author": "Pedro Balestra",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

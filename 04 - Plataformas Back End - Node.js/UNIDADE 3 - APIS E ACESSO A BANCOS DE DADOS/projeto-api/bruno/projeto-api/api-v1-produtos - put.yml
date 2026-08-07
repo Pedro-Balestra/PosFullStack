@@ -1,0 +1,23 @@
+info:
+  name: api/v1/produtos - put
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: http://localhost:3000/api/v1/produtos/11
+  body:
+    type: json
+    data: |-
+      {
+        "descricao": "Short",
+        "marca": "Nike",
+        "preco": 249.99
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,23 @@
+info:
+  name: api/v1/produtos - post
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: http://localhost:3000/api/v1/produtos
+  body:
+    type: json
+    data: |-
+      {
+        "descricao": "Tênis",
+        "marca": "Nike",
+        "preco": 549.99
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

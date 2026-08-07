@@ -1,5 +1,5 @@
 info:
-  name: api/v2/produtos/${id} copy
+  name: "api/v2/produtos/${id} "
   type: http
   seq: 7
 

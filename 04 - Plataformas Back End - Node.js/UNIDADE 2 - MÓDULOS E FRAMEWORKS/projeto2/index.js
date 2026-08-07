@@ -1,17 +1,19 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res, next) => {
+app.use(express.json());
+
+app.use((req, res, next) => {
     console.log(new Date().toLocaleDateString(), req.method, req.path);
     next();
 });
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+app.use(express.static('public'));
 
-app.use((req, res) => {
-    res.status(404).send('Page not found');
+app.post('/users', (req, res) => {
+    dados = req.body;
+    console.log(dados);
+    res.send(`Dados recebidos com sucesso! Seja bem-vindo, ${dados.nome}!`);
 });
 
 app.listen(3000, () => {

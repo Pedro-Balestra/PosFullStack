@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { Header } from './components/Header';
 import { SkillsList } from './components/SkillsList';
@@ -7,7 +7,10 @@ import { SkillsList } from './components/SkillsList';
 function App() {
 
   const [loading, setLoading] = useState(false);
-  console.log("Renderizando App...");
+
+  useEffect(() => {
+    console.log("Renderizando App...");
+  }, [loading]);
 
   return (
     <div className="App">

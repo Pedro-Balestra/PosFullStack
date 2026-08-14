@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddItem } from "./AddItem";
 import { TodoItem } from "./TodoItem";
 
 const TASK_LIST = [
@@ -42,8 +43,24 @@ export function TodoList() {
         setTaskList(updatedTask);
     }
 
+    function handleOnAdd(task) {
+        const newTask = taskList.concat({
+            id: taskList.length + 1,
+            name: task,
+            isCompleted: false
+        })
+        setTaskList(newTask);
+    }
+
     return (
         <section className='task-list-container'>
+            <h1>Lista de Tarefas</h1>
+            <div>
+                <p><strong>Total de tarefas: </strong> {taskList.length}</p>
+                <p><strong> Tarefas pendentes: </strong> {taskList.filter((t) => !t.isCompleted).length}</p>
+                <p><strong> Tarefas concluídas: </strong> {taskList.filter((t) => t.isCompleted).length}</p>
+            </div>
+            <AddItem onAdd={handleOnAdd} />
             <ul>
                 {taskList.map((task) => (
                     <li key={task.id}>

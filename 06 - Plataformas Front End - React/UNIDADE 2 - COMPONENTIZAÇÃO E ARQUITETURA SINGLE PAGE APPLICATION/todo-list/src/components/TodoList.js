@@ -32,12 +32,22 @@ const TASK_LIST = [
 export function TodoList() {
     const [taskList, setTaskList] = useState(TASK_LIST);
 
+    function handleOnCheck(task) {
+        const updatedTask = taskList.map((t) => {
+            if (t.id === task.id) {
+                t.isCompleted = task.isCompleted;
+            }
+            return t;
+        });
+        setTaskList(updatedTask);
+    }
+
     return (
         <section className='task-list-container'>
             <ul>
                 {taskList.map((task) => (
                     <li key={task.id}>
-                        <TodoItem task={task} />
+                        <TodoItem task={task} onCheck={handleOnCheck} />
                     </li>
                 ))}
             </ul>

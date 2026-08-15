@@ -1,0 +1,15 @@
+.movie{
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.detailsBtn{
+    text-decoration: none;
+    font-weight: bold;
+    color: darkblue;
+}
+
+.detailsBtn:hover{
+    color: blue;
+}

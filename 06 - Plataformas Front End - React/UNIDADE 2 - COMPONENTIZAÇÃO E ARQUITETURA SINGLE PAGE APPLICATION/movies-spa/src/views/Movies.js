@@ -1,15 +1,8 @@
-import { useEffect, useState } from "react"
-import { getPopularMovies } from "../services/movies.service"
+import { useMovies } from "../hooks/useMovies";
 
 export function Movies() {
 
-    const [movies, setMovies] = useState([])
-
-    useEffect(() => {
-        getPopularMovies().then(({ data }) => {
-            setMovies(data.results)
-        })
-    }, [])
+    const movies = useMovies();
 
     return (
         <section>

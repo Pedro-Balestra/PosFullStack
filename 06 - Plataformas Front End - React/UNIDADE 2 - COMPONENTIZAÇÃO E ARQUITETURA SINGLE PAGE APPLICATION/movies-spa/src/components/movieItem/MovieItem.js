@@ -10,7 +10,7 @@ export function MovieItem({ movie }) {
 
             <h3>{movie.title}</h3>
             <p>
-                <Link className={styles.detailsBtn} to={`movies/${movie.id}`}>Ver detalhes</Link>
+                <Link className={styles.detailsBtn} to={`/movies/${movie.id}`}>Ver detalhes</Link>
             </p>
         </div>
     )

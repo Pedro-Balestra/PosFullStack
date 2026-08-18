@@ -7,7 +7,7 @@ export const favoritoSlice = createSlice({
         movies: []
     },
     reducers: {
-        addMovies: (state, action) => {
+        addMovie: (state, action) => {
             if (!state.movies.find(movie => movie.id === action.payload.id)) {
                 state.movies = state.movies.concat(action.payload)
             }
@@ -20,5 +20,5 @@ export const favoritoSlice = createSlice({
     }
 })
 
-export const { addMovies, removeMovie } = favoritoSlice.actions
+export const { addMovie, removeMovie } = favoritoSlice.actions
 export default favoritoSlice.reducer

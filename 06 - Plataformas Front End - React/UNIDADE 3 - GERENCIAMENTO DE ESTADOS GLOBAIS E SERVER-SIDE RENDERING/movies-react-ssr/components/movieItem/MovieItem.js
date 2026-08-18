@@ -1,27 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { addMovie, removeMovie } from "../../store/reducers/favorito";
+import Link from "next/link";
 import styles from "./MovieItem.module.css";
 
 export function MovieItem({ movie }) {
-  const dispatch = useDispatch();
-  const movies = useSelector((state) => state.favorito.movies);
-
-  function renderButton() {
-    if (movies.find((m) => m.id === movie.id)) {
-      return (
-        <button onClick={() => dispatch(removeMovie(movie))}>
-          Remover dos favoritos
-        </button>
-      );
-    }
-    return (
-      <button onClick={() => dispatch(addMovie(movie))}>
-        Adcionar aos favoritos
-      </button>
-    );
-  }
-
   return (
     <div className={styles.movie}>
       {movie.poster_path && (
@@ -33,10 +13,9 @@ export function MovieItem({ movie }) {
 
       <h3>{movie.title}</h3>
       <p>
-        <Link className={styles.detailsBtn} to={`/movies/${movie.id}`}>
+        <Link className={styles.detailsBtn} href={`/movies/${movie.id}`}>
           Ver detalhes
         </Link>
-        {renderButton()}
       </p>
     </div>
   );

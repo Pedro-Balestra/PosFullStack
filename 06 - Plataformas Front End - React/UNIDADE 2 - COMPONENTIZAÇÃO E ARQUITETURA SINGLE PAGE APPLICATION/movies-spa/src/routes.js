@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { Favorites } from "./views/favorites/Favorites";
 import { Home } from "./views/Home";
 import { MovieDetail } from "./views/movieDetail/MovieDetail";
 import { Movies } from "./views/movies/Movies";
@@ -20,6 +21,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/movies/:id',
                 element: <MovieDetail />
+            },
+            {
+                path: '/favorites',
+                element: <Favorites />
             },
         ]
     }

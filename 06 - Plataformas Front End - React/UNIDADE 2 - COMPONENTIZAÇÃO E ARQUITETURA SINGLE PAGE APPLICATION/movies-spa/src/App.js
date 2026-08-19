@@ -4,7 +4,7 @@ import { RouterProvider } from "react-router-dom";
 import { routes } from "./routes";
 import store from "./store";
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 30000,

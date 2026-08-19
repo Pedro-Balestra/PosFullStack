@@ -33,7 +33,7 @@ export function useMovie(id) {
   //   return movie;
 
   return useQuery({
-    queryKey: ["movies", id],
+    queryKey: ["movies", parseInt(id)],
     queryFn: async () => {
       const { data } = await getMovie(id);
       return data;
